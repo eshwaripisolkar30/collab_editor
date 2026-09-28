@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeCollab Pro</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <div class="logo">
+        CodeCollab <span>Pro</span>
+    </div>
+
+    <div class="nav-links">
+        <a href="/">Home</a>
+    </div>
+
+</nav>
+
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-badge">
+            <span class="dot"></span>
+            Live · Real-Time Sync
+        </div>
+
+        <h1>
+            Collaborate on Code
+            <span>In Real Time</span>
+        </h1>
+
+        <p>
+            A professional collaborative programming platform
+            built using Flask, Socket.IO and PostgreSQL.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="/new-room"
+               class="btn-primary">
+               Create Room
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="join-card">
+
+    <form action="/join" method="POST">
+
+        <input
+            type="text"
+            name="room_id"
+            placeholder="Enter Room ID"
+            required
+        >
+
+        <button type="submit">
+
+            Join Room
+
+        </button>
+
+    </form>
+
+</section>
+
+
+<section class="features">
+
+    <div class="feature">
+
+        <h2>⚡ Real Time</h2>
+
+        <p>
+            Instant collaboration using WebSockets.
+        </p>
+
+    </div>
+
+    <div class="feature">
+
+        <h2>💾 Auto Save</h2>
+
+        <p>
+            Code is automatically saved to PostgreSQL.
+        </p>
+
+    </div>
+
+    <div class="feature">
+
+        <h2>🌍 Multi User</h2>
+
+        <p>
+            Invite anyone using the room ID.
+        </p>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    CodeCollab Pro © 2026
+
+</footer>
+
+<script src="{{ url_for('static', filename='js/home.js') }}"></script>
+
+</body>
+</html>

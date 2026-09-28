@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>CodeCollab Pro</title>
+
+    <!-- CSS -->
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/editor.css') }}">
+
+    <!-- CodeMirror -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/material-darker.min.css">
+
+</head>
+
+<body>
+
+<div class="editor-page">
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <h2>CodeCollab</h2>
+
+        <div class="room-box">
+
+            <label>
+
+                Room ID
+
+            </label>
+
+            <div class="room-id">
+
+                <span id="roomID">
+
+                    {{ room_id }}
+
+                </span>
+
+                <button id="copyRoom">
+
+                    Copy Link
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="language-box">
+
+            <label>
+
+                Language
+
+            </label>
+
+            <select id="language">
+
+                <option value="python">Python</option>
+
+                <option value="javascript">JavaScript</option>
+
+                <option value="cpp">C++</option>
+
+                <option value="java">Java</option>
+
+                <option value="c">C</option>
+
+            </select>
+
+        </div>
+
+        <div class="users-box">
+
+            <label>
+
+                Online Users
+
+            </label>
+
+            <h3 id="onlineCount">
+
+                1
+
+            </h3>
+
+        </div>
+
+        <div class="status-box">
+
+            <label>
+
+                Status
+
+            </label>
+
+            <span id="saveStatus">
+
+                Connected
+
+            </span>
+
+        </div>
+
+        <button id="leaveRoom">
+
+            Leave Room
+
+        </button>
+
+    </aside>
+
+    <!-- Main -->
+
+    <main class="editor-container">
+
+        <div class="toolbar">
+
+            <div>
+
+                Collaborative Editor
+
+            </div>
+
+            <div>
+
+                Auto Save Enabled
+
+            </div>
+
+        </div>
+
+        <textarea id="editor">{{ code }}</textarea>
+
+        <div class="footer">
+
+            <span>
+
+                PostgreSQL Enabled
+
+            </span>
+
+            <span id="characterCount">
+
+                Characters : 0
+
+            </span>
+
+        </div>
+
+    </main>
+
+</div>
+
+<!-- Libraries -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.5/socket.io.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/python/python.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/javascript/javascript.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/clike/clike.min.js"></script>
+
+<script>
+
+const ROOM_ID = "{{ room_id }}";
+
+const LANGUAGE = "{{ language }}";
+
+</script>
+
+<script src="{{ url_for('static',
+filename='js/editor.js') }}"></script>
+
+</body>
+
+</html>

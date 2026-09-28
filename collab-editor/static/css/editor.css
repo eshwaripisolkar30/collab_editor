@@ -1,0 +1,303 @@
+/* =====================================================
+   CodeCollab Pro
+   Editor Theme — "Forest & Gold"
+===================================================== */
+
+:root{
+    --bg:#0B120F;
+    --sidebar:#0E1A15;
+    --card:#16221C;
+    --primary:#F5B942;
+    --primary-dark:#DA9A2B;
+    --secondary:#34D399;
+    --accent:#F4718F;
+    --success:#4ADE80;
+    --danger:#FB7185;
+    --text:#F3F6F1;
+    --muted:#93A69A;
+    --border:rgba(245,185,66,.12);
+}
+
+html,
+body{
+    margin:0;
+    padding:0;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    background:var(--bg);
+    color:var(--text);
+    font-family:Poppins,sans-serif;
+}
+
+/* ===========================
+   Layout
+=========================== */
+
+.editor-page{
+    display:flex;
+    width:100%;
+    height:100vh;
+}
+
+/* ===========================
+   Sidebar
+=========================== */
+
+.sidebar{
+    width:310px;
+    background:rgba(14,26,21,.95);
+    backdrop-filter:blur(20px);
+    padding:30px;
+    display:flex;
+    flex-direction:column;
+    border-right:1px solid var(--border);
+}
+
+.sidebar h2{
+    color:var(--text);
+    margin-bottom:30px;
+    text-align:center;
+    letter-spacing:.3px;
+}
+
+/* ===========================
+   Cards
+=========================== */
+
+.room-box,
+.language-box,
+.users-box,
+.status-box{
+    background:rgba(255,255,255,.04);
+    padding:18px;
+    border-radius:14px;
+    margin-bottom:18px;
+    border:1px solid var(--border);
+}
+
+.room-box label,
+.language-box label,
+.users-box label,
+.status-box label{
+    display:block;
+    color:var(--muted);
+    margin-bottom:12px;
+    font-size:13px;
+    text-transform:uppercase;
+    letter-spacing:.5px;
+}
+
+.room-id{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+}
+
+.room-id span{
+    font-weight:600;
+    color:var(--text);
+    font-family:'JetBrains Mono', monospace;
+    font-size:15px;
+    word-break:break-all;
+}
+
+/* ===========================
+   Inputs
+=========================== */
+
+select{
+    width:100%;
+    padding:12px;
+    background:#16221C;
+    color:var(--text);
+    border:1px solid var(--border);
+    border-radius:8px;
+    outline:none;
+}
+
+/* ===========================
+   Buttons
+=========================== */
+
+button{
+    cursor:pointer;
+    transition:.25s;
+}
+
+#copyRoom{
+    background:var(--secondary);
+    color:#0B120F;
+    border:none;
+    padding:9px 16px;
+    border-radius:8px;
+    font-weight:600;
+    font-size:13px;
+    white-space:nowrap;
+}
+
+#copyRoom:hover{
+    background:#2FE3A6;
+}
+
+#copyRoom.copied{
+    background:var(--primary);
+}
+
+#leaveRoom{
+    margin-top:auto;
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(135deg, var(--danger), #E11D48);
+    color:white;
+    font-size:15px;
+    font-weight:600;
+}
+
+#leaveRoom:hover{
+    transform:translateY(-3px);
+}
+
+/* ===========================
+   Main Editor
+=========================== */
+
+.editor-container{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    background:var(--bg);
+}
+
+/* ===========================
+   Toolbar
+=========================== */
+
+.toolbar{
+    height:64px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 32px;
+    background:var(--sidebar);
+    border-bottom:1px solid var(--border);
+    font-weight:600;
+    font-size:14px;
+    color:var(--muted);
+}
+
+.toolbar div:first-child{
+    color:var(--text);
+}
+
+/* ===========================
+   CodeMirror
+=========================== */
+
+.CodeMirror{
+    flex:1;
+    height:calc(100vh - 114px) !important;
+    font-size:15px;
+    background:var(--bg);
+    font-family:'JetBrains Mono', monospace;
+}
+
+.CodeMirror-gutters{
+    background:var(--sidebar);
+    border-right:none;
+}
+
+.CodeMirror-linenumber{
+    color:#5C7268;
+}
+
+.CodeMirror-cursor{
+    border-left:2px solid var(--primary);
+}
+
+/* ===========================
+   Footer
+=========================== */
+
+.footer{
+    height:44px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 25px;
+    background:var(--sidebar);
+    border-top:1px solid var(--border);
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* ===========================
+   Status
+=========================== */
+
+#saveStatus{
+    color:var(--success);
+    font-weight:600;
+}
+
+#onlineCount{
+    color:var(--primary);
+    font-size:30px;
+    margin:0;
+}
+
+/* ===========================
+   Scrollbar
+=========================== */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:var(--sidebar);
+}
+
+::-webkit-scrollbar-thumb{
+    background:var(--secondary);
+    border-radius:20px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:var(--primary);
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media(max-width:900px){
+
+.sidebar{
+    width:240px;
+}
+
+.toolbar{
+    padding:0 15px;
+}
+
+}
+
+@media(max-width:768px){
+
+.editor-page{
+    flex-direction:column;
+}
+
+.sidebar{
+    width:100%;
+    height:auto;
+}
+
+.footer{
+    font-size:12px;
+}
+
+}
